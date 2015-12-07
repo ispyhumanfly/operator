@@ -1,0 +1,31 @@
+# The order of modules here is significant; a module must be listed after
+# all of its dependencies.
+xml-writer
+svg                                       # uses XML::Writer
+svg-plot                                  # uses SVG
+Terminal-ANSIColor
+test-mock
+Grammar-Profiler-Simple
+grammar-debugger                          # uses Terminal::ANSIColor
+Perl6-MIME-Base64
+uri
+perl6-lwp-simple                          # uses MIME::Base64, URI
+json
+perl6-digest-md5
+file-find
+shell-command
+json_fast
+panda                                     # uses JSON::Fast
+perl6-http-status
+p6-Template-Mustache
+PSGI
+perl6-http-easy                           # uses PSGI
+Template-Mojo
+Bailador                                  # uses PSGI, Template::Mustache
+DBIish
+jsonrpc                                   # uses PSGI
+Pod-To-HTML
+p6-file-directory-tree
+p6-File-Temp                              # uses File::Directory::Tree
+doc                                       # uses File::Temp
+debugger-ui-commandline

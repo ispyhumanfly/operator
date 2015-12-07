@@ -1,0 +1,89 @@
+#!/usr/bin/env perl
+
+use 5.010_000;
+use strict;
+use warnings;
+
+BEGIN {
+
+    die "You must set the OPERATOR_ROOT variable before instantiating Operator.pm"
+      unless exists $ENV{OPERATOR_ROOT};
+}
+
+our $ROOT = $ENV{OPERATOR_ROOT};
+chdir $ROOT;
+
+# Build Operator
+
+## Linux Packages
+if (-e '/etc/os-release') {
+
+    say "\nInstalling Linux Packages...\n";
+
+    my @packages =
+        
+        qw/
+            make
+            automake
+            gcc
+            cpanminus
+            liblocal-lib-perl
+            libssl-dev
+            libgmp-dev
+            libxml2-dev
+            python-pip  
+            unzip
+            git
+        /;
+
+    system "sudo apt-get -y install @packages";
+    
+    ## AWS Command Line Tools
+    system "sudo pip install awscli";
+
+    ## Azure Command Line Tools
+    #system "sudo pip install azure";
+}
+
+## Perl 5
+
+say "\nBuilding Perl 5...\n";
+
+my @modules =
+
+    qw/
+        Mojolicious
+        Mojolicious::Lite
+        Archive::Zip
+        File::Slurp
+        File::Copy
+        Data::Dumper
+        Try::Tiny
+        IO::Socket::SSL
+        Rex::Task
+        Perl6::Attributes
+        namespace::clean
+        Moo
+        MooX::Options
+        Perl::Critic
+        Perl::Tidy
+    /;
+
+system "cd $ROOT ; cpanm --force -L . $_" for @modules;
+
+## Perl 6
+
+say "\nBuilding Perl 6...\n";
+
+system "cd /tmp ; wget http://rakudo.org/downloads/star/rakudo-star-2015.09.tar.gz";
+system "cd $ROOT/lib/ ; tar -xvf /tmp/rakudo-star-2015.09.tar.gz ; mv rakudo-star-2015.09 perl6/";
+system "cd $ROOT/lib/perl6/ ; perl Configure.pl --backends=moar --gen-moar ; make ; make install";
+
+symlink "$ROOT/lib/perl6/perl6","$ROOT/bin/perl6";
+symlink "$ROOT/lib/perl6/modules/panda/bin/panda","$ROOT/bin/panda";
+
+say "\nOperator is now ready for use!\n";
+
+system "$ROOT/operator.cli -h";
+
+exit(0);

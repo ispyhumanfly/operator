@@ -1,0 +1,11 @@
+#!/usr/bin/env perl
+
+use 5.010_000;
+use strict;
+use warnings;
+
+use local::lib '.';
+
+use Mojolicious::Lite;
+
+exit(0);

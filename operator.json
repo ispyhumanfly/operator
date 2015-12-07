@@ -1,0 +1,32 @@
+{
+    "name" : "Operator Default Configuration File",
+
+    "create" :
+    {
+        "cli_string" : "type=c2.4xlarge:storage=50gb:total=3"
+    },
+    "update" :
+    {
+        "cli_string" : "type=c2.4xlarge"
+    },
+    "destroy":
+    {
+        "cli_string" : "all=yes"
+    },
+    "move":
+    {
+        "cli_string" : "all=yes"
+    },
+    "copy":
+    {
+        "cli_string" : "all=yes"
+    },
+    "start":
+    {
+        "cli_string" : "all=yes"
+    },
+    "stop":
+    {
+        "cli_string" : "all=yes"
+    }
+}

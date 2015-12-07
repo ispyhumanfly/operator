@@ -1,0 +1,67 @@
+#!/usr/bin/env perl
+
+use 5.010_000;
+use strict;
+use warnings;
+
+BEGIN {
+
+    say  "You must set the OPERATOR_ROOT variable before starting Operator."
+      and exit 1 unless exists $ENV{OPERATOR_ROOT};
+};
+
+our $ROOT = $ENV{OPERATOR_ROOT};
+chdir $ROOT;
+
+use local::lib ".";
+
+use lib "lib/prototype";
+use Operator;
+
+use Moo;
+use MooX::Options;
+use Perl6::Attributes;
+
+option name  => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+
+option create  => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+option update  => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+option destroy => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+option report => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+option move => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+option copy => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+option start => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+option stop => (is => 'ro', required => 0, format => 's', doc => 'Some information here...');
+
+sub run {
+    
+    my $self = shift;
+    
+    my $op = Operator->new;
+
+    # create
+    $op->create($.create) if $.create;
+    
+    # update
+    $op->update($.update) if $.update;
+    
+    # destroy
+    $op->destroy($.destroy) if $.destroy;
+
+    # move
+    $op->destroy($.destroy) if $.destroy;
+
+    # copy
+    $op->destroy($.destroy) if $.destroy;
+
+    # start
+    $op->destroy($.destroy) if $.destroy;
+
+    # stop
+    $op->destroy($.destroy) if $.destroy;
+
+}
+
+main->new_with_options->run;
+
+exit(0);

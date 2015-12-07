@@ -1,0 +1,9 @@
+lib/perl5/
+bin/*
+!bin/opcreate
+!bin/opupdate
+!bin/opdestroy
+man
+*.swp
+*.bak
+operator.db

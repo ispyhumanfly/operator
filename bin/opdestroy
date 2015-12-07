@@ -1,0 +1,13 @@
+#!/usr/bin/env perl6
+
+sub run () { say "Operator is running in Perl!"; }
+
+# Main Function for Command Line Processing & Setup
+sub MAIN ( Str :$name, Str :$string, Bool :$verbose ) {
+
+    say $name if $name.defined;
+    say $string if $string.defined;
+    say 'Verbosity ', ($verbose ?? 'on' !! 'off');
+
+    run();
+}
