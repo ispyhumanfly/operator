@@ -1,4 +1,5 @@
 lib/perl5/
+lib/perl6/
 bin/*
 !bin/opcreate
 !bin/opupdate
