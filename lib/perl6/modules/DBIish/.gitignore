@@ -1,7 +1,0 @@
-*.pir
-Makefile
-blib/
-minidbi-test.sqlite3
-*.moarvm
-*.jar
-*~
