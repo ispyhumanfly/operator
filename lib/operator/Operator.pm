@@ -33,7 +33,7 @@ sub BUILD {
 
     my $self = shift;
 
-    #$self->path_to_bin("$ENV{AVA_ROOT}/usr/local/bin")
+    #$self->path_to_bin("$ENV{OPERATOR_ROOT}/usr/local/bin")
     #  unless defined $self->path_to_bin;
 
 }

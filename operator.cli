@@ -48,20 +48,20 @@ sub run {
     # destroy
     $op->destroy($.destroy) if $.destroy;
 
-    # destroy
-    $op->destroy($.destroy) if $.destroy;
+    # report
+    $op->report($.report) if $.report;
     
     # move
-    $op->destroy($.destroy) if $.destroy;
+    $op->move($.move) if $.move;
 
     # copy
     $op->destroy($.destroy) if $.destroy;
 
     # start
-    $op->destroy($.destroy) if $.destroy;
+    $op->start($.start) if $.start;
 
     # stop
-    $op->destroy($.destroy) if $.destroy;
+    $op->stop($.stop) if $.stop;
 
 }
 
