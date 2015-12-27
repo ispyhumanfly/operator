@@ -15,7 +15,7 @@ chdir $ROOT;
 
 use local::lib ".";
 
-use lib "lib/prototype";
+use lib "lib/operator";
 use Operator;
 
 use Moo;
@@ -48,6 +48,9 @@ sub run {
     # destroy
     $op->destroy($.destroy) if $.destroy;
 
+    # destroy
+    $op->destroy($.destroy) if $.destroy;
+    
     # move
     $op->destroy($.destroy) if $.destroy;
 
