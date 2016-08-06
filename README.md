@@ -1,2 +1,2 @@
 # operator
-A cloud provider agnostic toolkit for creating and managing the topology and life-cycle of cloud computing resources.
+A unified abstraction of the Amazon, Microsoft and Google Cloud APIs.
